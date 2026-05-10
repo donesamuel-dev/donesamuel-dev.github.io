@@ -39,13 +39,16 @@ index.html<!DOCTYPE html>
     <p><strong>JAMB:</strong> 09016809988</p>
     <p><strong>Goal:</strong> Get remote job by coding by Dec 2027</p>
     <p><strong>Started:</strong> May 9, 2026</p>
-    <button onclick="celebrate()">Day 1 complete!</button>
-  </div>
+<button id="dayBtn" onclick="completeDay()">Day 1 complete!</button>
+<p id="status"></p>
 
-  <script>
-    function celebrate() {
-      alert('Day 1 done ✅ This is how rich people start');
-    }
+<script>
+function completeDay() {
+    document.getElementById('dayBtn').innerHTML = 'Day 2 complete!';
+    document.getElementById('dayBtn').style.backgroundColor = '#3b82f6';
+    document.getElementById('status').innerHTML = 'Nice work, Done Samuel. Day 2 locked in ✅';
+}
+</script>
   </script>
 </body>
 </html>
