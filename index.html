@@ -1,68 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Done Samuel - Day 6 Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Done Samuel - Day 5</title>
     <style>
         body {
-            background: #0f172a;
-            color: #fbbf24;
             font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
             text-align: center;
-            padding: 40px 20px;
-        }
-        h1 {
-            color: #fbbf24;
-            font-size: 28px;
-        }
-        .card {
-            background: #1e293b;
             padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
         }
+        h1 { color: #22c55e; }
+        h2 { color: #e2e8f0; }
         button {
             background: #22c55e;
-            color: white;
+            color: #0f172a;
             border: none;
             padding: 12px 24px;
+            margin: 10px;
             border-radius: 8px;
             font-size: 16px;
-            margin-top: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover { background: #16a34a; }
+        #resetBtn { background: #ef4444; color: white; }
+        #resetBtn:hover { background: #dc2626; }
+        .progress-container {
+            width: 80%;
+            background: #1e293b;
+            border-radius: 10px;
+            margin: 20px auto;
+        }
+        #progressBar {
+            background: #22c55e;
+            height: 20px;
+            border-radius: 10px;
+            transition: width 0.3s ease;
         }
     </style>
 </head>
 <body>
-    
     <h1>Done Samuel's 90-Day Tracker</h1>
     <h2>Day <span id="dayCount">1</span> of 90</h2>
+    
+    <div class="progress-container">
+        <div id="progressBar" style="width: 1.11%;"></div>
+    </div>
+    <p><span id="percent">1.11</span>% Complete</p>
+    
     <p>Button clicked <span id="count">0</span> times</p>
     <button id="clickBtn">Click Me</button>
     <button id="resetBtn">Reset Day</button>
 
-<script>
+    <script>
+        let count = localStorage.getItem('count') || 0;
+        let day = localStorage.getItem('day') || 1;
 
-    let count = localStorage.getItem('count') || 0;
-let day = localStorage.getItem('day') || 1;
+        document.getElementById('count').textContent = count;
+        document.getElementById('dayCount').textContent = day;
 
-document.getElementById('count').textContent = count;
-document.getElementById('dayCount').textContent = day;
+        function updateProgress() {
+            let percent = (day / 90 * 100).toFixed(2);
+            document.getElementById('progressBar').style.width = percent + '%';
+            document.getElementById('percent').textContent = percent;
+        }
 
-document.getElementById('clickBtn').onclick = function() {
-    count++;
-    document.getElementById('count').textContent = count;
-    localStorage.setItem('count', count);
-}
+        updateProgress();
 
-document.getElementById('resetBtn').onclick = function() {
-    count = 0;
-    day++;
-    document.getElementById('count').textContent = count;
-    document.getElementById('dayCount').textContent = day;
-    localStorage.setItem('count', count);
-    localStorage.setItem('day', day);
-}
+        document.getElementById('clickBtn').onclick = function() {
+            count++;
+            document.getElementById('count').textContent = count;
+            localStorage.setItem('count', count);
+        }
 
+        document.getElementById('resetBtn').onclick = function() {
+            count = 0;
+            day++;
+            document.getElementById('count').textContent = count;
+            document.getElementById('dayCount').textContent = day;
+            localStorage.setItem('count', count);
+            localStorage.setItem('day', day);
+            updateProgress();
+        }
     </script>
 </body>
 </html>
