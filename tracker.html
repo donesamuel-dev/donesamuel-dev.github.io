@@ -12,29 +12,42 @@
             margin: 0;
             padding: 0;
         }
+        
         nav {
             background: #1e293b;
-            padding: 15px;
-            text-align: center;
+            padding: 15px 10px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
+        
         nav a {
             color: #f8fafc;
             text-decoration: none;
-            margin: 0 20px;
             font-weight: bold;
+            white-space: nowrap;
         }
+        
         nav a:hover {
             color: #22c55e;
         }
+        
         nav a.active {
             color: #22c55e;
             border-bottom: 2px solid #22c55e;
         }
+        
         .container {
             text-align: center;
             padding: 40px 20px;
         }
-        h1 { color: #22c55e; }
+        
+        h1 { 
+            color: #22c55e; 
+            margin-bottom: 30px;
+        }
+        
         .tracker-box {
             background: #1e293b;
             padding: 30px;
@@ -42,6 +55,12 @@
             margin: 20px auto;
             max-width: 500px;
         }
+        
+        .tracker-box p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+        
         button {
             background: #22c55e;
             color: #0f172a;
@@ -49,10 +68,23 @@
             padding: 12px 24px;
             border-radius: 8px;
             font-weight: bold;
+            font-size: 16px;
             cursor: pointer;
             margin: 10px;
         }
-        button:hover { background: #16a34a; }
+        
+        button:hover { 
+            background: #16a34a; 
+        }
+        
+        @media (max-width: 400px) {
+            nav {
+                gap: 12px;
+            }
+            nav a {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -106,7 +138,10 @@
 
         function reset() {
             if (confirm('Reset everything?')) {
-                day = 1; streak = 0; daysActive = 0; bestStreak = 0;
+                day = 1; 
+                streak = 0; 
+                daysActive = 0; 
+                bestStreak = 0;
                 localStorage.clear();
                 updateDisplay();
             }
