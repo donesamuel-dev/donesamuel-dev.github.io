@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Done Samuel</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+        }
+        nav {
+            background: #1e293b;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        nav a { color: #f8fafc; text-decoration: none; font-weight: 600; }
+        nav a:hover, nav a.active { color: #22c55e; }
+        .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        h1 { color: #22c55e; margin-bottom: 30px; font-size: 2.5rem; }
+        p { color: #94a3b8; margin-bottom: 20px; font-size: 1.1rem; }
+        .skills {
+            margin-top: 40px;
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+        }
+        .skills h2 { color: #f8fafc; margin-bottom: 20px; }
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill {
+            background: #0f172a;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid #22c55e;
+            color: #22c55e;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 
+    <div class="container">
+        <h1>About Me</h1>
+        <p>I'm Done Samuel, a frontend developer focused on building fast, responsive, and user-friendly websites.</p>
+        <p>I enjoy turning ideas into clean interfaces that work smoothly on any device. Right now I'm focused on HTML, CSS, JavaScript, and React, and I'm always learning.</p>
+        
+        <div class="skills">
+            <h2>Skills</h2>
+            <div class="skill-list">
+                <span class="skill">HTML5</span>
+                <span class="skill">CSS3</span>
+                <span class="skill">JavaScript</span>
+                <span class="skill">React</span>
+                <span class="skill">Responsive Design</span>
+                <span class="skill">Git & GitHub</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
