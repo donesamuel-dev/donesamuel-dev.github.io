@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Done Samuel - Day 39 Tracker</title>
+    <title>Done Samuel - Day 40 Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://fav.farm/🔥" />
     <style>
@@ -28,7 +28,7 @@
         button:hover { background: #16a34a; }
         #resetBtn { background: #ef4444; color: white; }
         #resetBtn:hover { background: #dc2626; }
-      .progress-container {
+       .progress-container {
             width: 80%;
             background: #1e293b;
             border-radius: 10px;
@@ -40,12 +40,13 @@
             border-radius: 10px;
             transition: width 0.3s ease;
         }
-        #quote, #streak, #daysLeftText {
+        #quote, #streak, #daysLeftText, #activeDays {
             color: #94a3b8;
             margin-top: 8px;
         }
         #streak { color: #fbbf24; font-weight: bold; }
         #quote { font-style: italic; }
+        #activeDays { color: #22c55e; }
     </style>
 </head>
 <body>
@@ -57,6 +58,7 @@
     </div>
     <p><span id="percent">1.11</span>% Complete</p>
     <p id="daysLeftText"><span id="daysLeft">89</span> days left to Dec 2027 goal</p>
+    <p id="activeDays">Days Active: <span id="activeCount">1</span></p>
     <p id="quote">"Consistency beats talent"</p>
     <p id="streak">🔥 0 day streak</p>
 
@@ -69,6 +71,7 @@
         let day = localStorage.getItem('day') || 1;
         let streak = localStorage.getItem('streak') || 0;
         let lastVisit = localStorage.getItem('lastVisit') || '';
+        let activeDays = JSON.parse(localStorage.getItem('activeDays')) || [];
 
         document.getElementById('count').textContent = count;
         document.getElementById('dayCount').textContent = day;
@@ -76,6 +79,14 @@
         function updateProgress() {
             let today = new Date().toDateString();
 
+            // Track active days
+            if (!activeDays.includes(today)) {
+                activeDays.push(today);
+                localStorage.setItem('activeDays', JSON.stringify(activeDays));
+            }
+            document.getElementById('activeCount').textContent = activeDays.length;
+
+            // Streak logic
             if (lastVisit && lastVisit!== today) {
                 let yesterday = new Date();
                 yesterday.setDate(yesterday.getDate() - 1);
@@ -129,4 +140,4 @@
         }
     </script>
 </body>
-                                     </html>
+</html>
