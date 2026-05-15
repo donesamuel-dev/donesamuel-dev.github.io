@@ -10,39 +10,55 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
             background: #0f172a;
             color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         nav {
             background: #1e293b;
             padding: 15px 20px;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
             gap: 25px;
+            position: sticky;
+            top: 0;
         }
         nav a { color: #f8fafc; text-decoration: none; font-weight: 600; }
         nav a:hover, nav a.active { color: #22c55e; }
-        .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        
+        .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; flex: 1; }
         h1 { color: #22c55e; margin-bottom: 30px; font-size: 2.5rem; }
-        p { color: #94a3b8; margin-bottom: 20px; font-size: 1.1rem; }
+        p { color: #94a3b8; margin-bottom: 20px; font-size: 1.1rem; line-height: 1.8; }
+        
         .skills {
             margin-top: 40px;
             background: #1e293b;
-            padding: 30px;
+            padding: 35px;
             border-radius: 12px;
         }
         .skills h2 { color: #f8fafc; margin-bottom: 20px; }
         .skill-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
         .skill {
             background: #0f172a;
-            padding: 8px 16px;
+            padding: 10px 18px;
             border-radius: 20px;
             border: 1px solid #22c55e;
             color: #22c55e;
+            font-weight: 600;
         }
+        
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: #1e293b;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        footer a { color: #22c55e; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -55,11 +71,11 @@
 
     <div class="container">
         <h1>About Me</h1>
-        <p>I'm Done Samuel, a frontend developer focused on building fast, responsive, and user-friendly websites.</p>
-        <p>I enjoy turning ideas into clean interfaces that work smoothly on any device. Right now I'm focused on HTML, CSS, JavaScript, and React, and I'm always learning.</p>
+        <p>I'm Done Samuel, a self-taught frontend developer focused on building fast, responsive, and user-friendly websites. I enjoy turning ideas into clean interfaces that work smoothly on any device.</p>
+        <p>Right now I'm focused on HTML, CSS, JavaScript, and React. I'm building daily, tracking my progress, and taking on small projects to improve my skills and help clients get online.</p>
         
         <div class="skills">
-            <h2>Skills</h2>
+            <h2>Skills & Tools</h2>
             <div class="skill-list">
                 <span class="skill">HTML5</span>
                 <span class="skill">CSS3</span>
@@ -70,5 +86,9 @@
             </div>
         </div>
     </div>
+
+    <footer>
+        <p>© 2026 Done Samuel • <a href="mailto:samily246810@gmail.com">samily246810@gmail.com</a> • <a href="tel:+2349016809988">09016809988</a></p>
+    </footer>
 </body>
 </html>
