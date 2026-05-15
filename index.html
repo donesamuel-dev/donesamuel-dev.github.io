@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Done Samuel - Day 40 Tracker</title>
+    <title>Done Samuel - Day 41 Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://fav.farm/🔥" />
     <style>
@@ -40,11 +40,12 @@
             border-radius: 10px;
             transition: width 0.3s ease;
         }
-        #quote, #streak, #daysLeftText, #activeDays {
+        #quote, #streak, #daysLeftText, #activeDays, #bestStreak {
             color: #94a3b8;
             margin-top: 8px;
         }
         #streak { color: #fbbf24; font-weight: bold; }
+        #bestStreak { color: #f59e0b; font-weight: bold; }
         #quote { font-style: italic; }
         #activeDays { color: #22c55e; }
     </style>
@@ -61,6 +62,7 @@
     <p id="activeDays">Days Active: <span id="activeCount">1</span></p>
     <p id="quote">"Consistency beats talent"</p>
     <p id="streak">🔥 0 day streak</p>
+    <p id="bestStreak">🏆 Best Streak: 0 days</p>
 
     <p>Button clicked <span id="count">0</span> times</p>
     <button id="clickBtn">Click Me</button>
@@ -70,6 +72,7 @@
         let count = localStorage.getItem('count') || 0;
         let day = localStorage.getItem('day') || 1;
         let streak = localStorage.getItem('streak') || 0;
+        let bestStreak = localStorage.getItem('bestStreak') || 0;
         let lastVisit = localStorage.getItem('lastVisit') || '';
         let activeDays = JSON.parse(localStorage.getItem('activeDays')) || [];
 
@@ -99,9 +102,17 @@
                 streak = 1;
             }
 
+            // Update best streak
+            if (streak > bestStreak) {
+                bestStreak = streak;
+                localStorage.setItem('bestStreak', bestStreak);
+            }
+
             localStorage.setItem('streak', streak);
             localStorage.setItem('lastVisit', today);
+            
             document.getElementById('streak').textContent = `🔥 ${streak} day streak`;
+            document.getElementById('bestStreak').textContent = `🏆 Best Streak: ${bestStreak} days`;
 
             let percent = (day / 90 * 100).toFixed(2);
             document.getElementById('progressBar').style.width = percent + '%';
