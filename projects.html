@@ -1,84 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Done Samuel - Projects</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://fav.farm/🔥" />
+    <title>Projects - Done Samuel</title>
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
             background: #0f172a;
             color: #f8fafc;
-            margin: 0;
-            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         nav {
             background: #1e293b;
-            padding: 15px;
-            text-align: center;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            position: sticky;
+            top: 0;
         }
-        nav a {
-            color: #f8fafc;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: #22c55e;
-        }
-        nav a.active {
-            color: #22c55e;
-            border-bottom: 2px solid #22c55e;
-        }
-        .container {
-            text-align: center;
-            padding: 40px 20px;
-        }
-        h1 { color: #22c55e; }
-        .project-card {
+        nav a { color: #f8fafc; text-decoration: none; font-weight: 600; }
+        nav a:hover, nav a.active { color: #22c55e; }
+        
+        .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; flex: 1; }
+        h1 { text-align: center; color: #22c55e; margin-bottom: 50px; font-size: 2.5rem; }
+        
+        .project {
             background: #1e293b;
-            padding: 25px;
-            border-radius: 10px;
-            margin: 20px auto;
-            max-width: 600px;
-            text-align: left;
+            padding: 35px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-left: 4px solid #22c55e;
         }
-        .btn {
-            background: #22c55e;
-            color: #0f172a;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
+        .project h2 { color: #f8fafc; margin-bottom: 12px; font-size: 1.5rem; }
+        .project p { color: #94a3b8; margin-bottom: 15px; }
+        .tech { color: #22c55e; font-size: 0.9rem; margin-bottom: 20px; font-weight: 600; }
+        .links a { 
+            color: #22c55e; 
+            text-decoration: none; 
+            margin-right: 25px; 
+            font-weight: 600;
         }
-        .btn:hover { background: #16a34a; }
+        .links a:hover { text-decoration: underline; }
+        
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: #1e293b;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        footer a { color: #22c55e; text-decoration: none; }
     </style>
 </head>
 <body>
     <nav>
         <a href="index.html">Home</a>
-        <a href="tracker.html">Tracker</a>
         <a href="projects.html" class="active">Projects</a>
+        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
     </nav>
 
     <div class="container">
         <h1>My Projects</h1>
         
-        <div class="project-card">
-            <h2>90-Day Tracker</h2>
-            <p>A daily habit tracker I built to hit my goal of Remote Dev by Dec 2027. Tracks streaks, Days Active, and Best Streak.</p>
-            <a href="tracker.html" class="btn">View Tracker</a>
-        </div>
-
-        <div class="project-card">
-            <h2>More Projects Coming</h2>
-            <p>Building daily. New projects will be added here as I learn HTML, CSS, and JavaScript.</p>
+        <div class="project">
+            <h2>90-Day Habit Tracker</h2>
+            <p>A browser-based tracker to build consistency. Tracks daily streaks, best streaks, and shows a 90-day progress bar. Data saves locally using LocalStorage.</p>
+            <p class="tech">HTML5 • CSS3 • JavaScript • LocalStorage</p>
+            <div class="links">
+                <a href="tracker.html">Live Demo</a>
+                <a href="https://github.com/donesamuel-dev/donesamuel-dev.github.io">View Code</a>
+            </div>
         </div>
     </div>
+
+    <footer>
+        <p>© 2026 Done Samuel • <a href="mailto:samily246810@gmail.com">samily246810@gmail.com</a> • <a href="tel:+2349016809988">09016809988</a></p>
+    </footer>
 </body>
-</html
+</html>
