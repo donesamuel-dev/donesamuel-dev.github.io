@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Done Samuel - Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://fav.farm/🔥" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background: #1e293b;
+            padding: 15px;
+            text-align: center;
+        }
+        nav a {
+            color: #f8fafc;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #22c55e;
+        }
+        nav a.active {
+            color: #22c55e;
+            border-bottom: 2px solid #22c55e;
+        }
+        .container {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        h1 { color: #22c55e; }
+        .tracker-box {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+        }
+        button {
+            background: #22c55e;
+            color: #0f172a;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover { background: #16a34a; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="tracker.html" class="active">Tracker</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 
+    <div class="container">
+        <h1>90-Day Tracker</h1>
+        
+        <div class="tracker-box">
+            <p><strong>Day:</strong> <span id="day">1</span></p>
+            <p><strong>Streak:</strong> <span id="streak">0</span> days</p>
+            <p><strong>Days Active:</strong> <span id="daysActive">0</span></p>
+            <p><strong>Best Streak:</strong> <span id="bestStreak">0</span></p>
+            
+            <button onclick="markDone()">Mark Done</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        let day = localStorage.getItem('day') || 1;
+        let streak = localStorage.getItem('streak') || 0;
+        let daysActive = localStorage.getItem('daysActive') || 0;
+        let bestStreak = localStorage.getItem('bestStreak') || 0;
+
+        function updateDisplay() {
+            document.getElementById('day').textContent = day;
+            document.getElementById('streak').textContent = streak;
+            document.getElementById('daysActive').textContent = daysActive;
+            document.getElementById('bestStreak').textContent = bestStreak;
+        }
+
+        function markDone() {
+            streak = parseInt(streak) + 1;
+            daysActive = parseInt(daysActive) + 1;
+            day = parseInt(day) + 1;
+            if (streak > bestStreak) bestStreak = streak;
+            
+            localStorage.setItem('day', day);
+            localStorage.setItem('streak', streak);
+            localStorage.setItem('daysActive', daysActive);
+            localStorage.setItem('bestStreak', bestStreak);
+            
+            updateDisplay();
+        }
+
+        function reset() {
+            if (confirm('Reset everything?')) {
+                day = 1; streak = 0; daysActive = 0; bestStreak = 0;
+                localStorage.clear();
+                updateDisplay();
+            }
+        }
+
+        updateDisplay();
+    </script>
+</body>
+</html>
