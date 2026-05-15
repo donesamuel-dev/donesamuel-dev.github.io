@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Done Samuel - Frontend Developer</title>
-    <meta name="description" content="Frontend Developer building daily. Future UNIUYO Mass Comm student. Goal: Remote Dev by Dec 2027">
+    <meta name="description" content="Frontend Developer specializing in HTML, CSS, JavaScript, and React. Available for freelance work.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -12,16 +12,19 @@
             background: #0f172a;
             color: #f8fafc;
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         nav {
             background: #1e293b;
             padding: 15px 20px;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
             gap: 25px;
             position: sticky;
             top: 0;
+            z-index: 10;
         }
         nav a {
             color: #f8fafc;
@@ -30,41 +33,29 @@
             transition: color 0.2s;
         }
         nav a:hover, nav a.active { color: #22c55e; }
+        
         .hero {
             text-align: center;
-            padding: 70px 20px;
-            max-width: 750px;
+            padding: 80px 20px 60px;
+            max-width: 800px;
             margin: 0 auto;
+            flex: 1;
         }
         h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            margin-bottom: 15px;
             color: #22c55e;
         }
-        .subtitle {
-            font-size: 1.2rem;
+        .tagline {
+            font-size: 1.3rem;
             color: #94a3b8;
             margin-bottom: 30px;
-        }
-        .goal-box {
-            background: #1e293b;
-            padding: 25px;
-            border-radius: 12px;
-            margin: 30px auto;
-            max-width: 600px;
-        }
-        .goal-box h3 {
-            color: #f8fafc;
-            margin-bottom: 10px;
-        }
-        .goal-box p {
-            color: #94a3b8;
         }
         .btn {
             display: inline-block;
             background: #22c55e;
             color: #0f172a;
-            padding: 12px 28px;
+            padding: 14px 32px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
@@ -72,29 +63,49 @@
             transition: background 0.2s;
         }
         .btn:hover { background: #16a34a; }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #22c55e;
+            color: #22c55e;
+        }
+        .btn-outline:hover { background: #22c55e; color: #0f172a; }
+        
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: #1e293b;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        footer a { color: #22c55e; text-decoration: none; }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .btn { display: block; margin: 15px auto; width: 80%; }
+        }
     </style>
 </head>
 <body>
     <nav>
         <a href="index.html" class="active">Home</a>
-        <a href="tracker.html">Tracker</a>
         <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
     </nav>
 
     <section class="hero">
         <h1>Done Samuel</h1>
-        <p class="subtitle">Future UNIUYO Mass Comm Student</p>
-        
-        <div class="goal-box">
-            <h3>Goal: Remote Dev by Dec 2027</h3>
-            <p>Building daily. Tracking 90 days at a time. Turning 250 JAMB + Ebonyi ELDS into opportunity.</p>
-        </div>
+        <p class="tagline">Frontend Developer building fast, responsive websites</p>
+        <p style="color: #94a3b8; margin-bottom: 40px;">HTML • CSS • JavaScript • React</p>
         
         <div>
-            <a href="tracker.html" class="btn">View 90-Day Tracker</a>
-            <a href="projects.html" class="btn">See My Projects</a>
+            <a href="projects.html" class="btn">View My Work</a>
+            <a href="contact.html" class="btn btn-outline">Hire Me</a>
         </div>
     </section>
+
+    <footer>
+        <p>© 2026 Done Samuel • <a href="mailto:samily246810@gmail.com">samily246810@gmail.com</a> • <a href="tel:+2349016809988">09016809988</a></p>
+    </footer>
 </body>
-</
+</html>
